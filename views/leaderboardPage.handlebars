@@ -1,0 +1,25 @@
+<div id="leaderboard-container">
+  <h1>Leaderboard</h1>
+  <h2>Here is the list of the TOP 20 hardest working athletes (total calories burned).</h2>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Username</th>
+          <th>Calories Burned</th>
+        </tr>
+      </thead>
+          <tbody>
+            {{#each leaderboardArray}}
+              <tr>
+                <td>{{addOne @index}}</td>
+                <td>{{this.username}}</td>
+                <td>{{this.calories}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+    </table>
+  </div>
+</div>

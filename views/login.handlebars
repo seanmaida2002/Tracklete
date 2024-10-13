@@ -1,0 +1,22 @@
+<div id="login-container">
+    <h1 id="login-welcome">Log In</h1>
+    <h2 id="login-signUpHere">Don't have an account yet? <a id="login-signUpHereButton" href="/register">Sign Up</a></h2>
+
+    <form action="/login" method="POST" name="signin-form" id="signin-form">
+
+        <label for="username" id="usernameLabel">Username</label>
+        <input id="username" class="{{errorClass}}" name="username" type="text">
+        {{!-- <div id="usernameError" class="loginError">{{usernameError}}</div> --}}
+
+        <label for="password" id="passwordLabel">Password</label>
+        <input id="password" class="{{errorClass}}" name="password" type="password">
+        {{!-- <div id="passwordError" class="loginError">{{passwordError}}</div> --}}
+
+        <div id="loginError">{{errorMessage}}</div>
+
+        <button id="loginSubmit" name="loginSubmit" type="submit">Log In</button>
+    </form>
+     <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="/public/js/login-client.js"></script>
+</div>

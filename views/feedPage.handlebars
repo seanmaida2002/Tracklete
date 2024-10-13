@@ -1,0 +1,55 @@
+<div id="feed-container">
+    <h1>Posts</h1>
+
+    <div class="filter-posts-container">
+        <form id="filterForm">
+            <label for="filter">Filter</label>
+            <input type="text" id="filterTag" name="filterTag" placeholder="sport">
+            <button class="filterButton" id="filter" name="filter" type="submit">Search</button>
+            <button class="filterButton" id="undoFilter" name="undoFilter" type="reset">Undo</button>
+        </form>
+        <div id="filter-tagError"></div>
+    </div>
+    
+    <div class="profile-posts-container">
+        {{#each posts}}
+        <div class="profile-posts">
+                <div class="profile-post">
+                    <div class="profile-post-title"><a href="/feed/{{this.id}}">{{title}}</a></div>
+                    <div class="profile-post-content">{{body}}</div>
+                    {{#if tags}}
+                    <div class="post-tags">Tags: {{tags}}</div>
+                    {{/if}}
+                    <div class="profile-post-caption-container">
+                        <div class="profile-post-caption-username">@{{username}}</div>
+                    </div>
+                    <div class="profile-post-likes">
+                        <img src="/public/images/heart.png" alt="heart">{{likes}} likes</div>
+                    <div class="profile-post-comments-placeholder">
+                        View comments
+                    </div>
+                    <div class="profile-post-comments-container hidden">
+                        {{#if comments.length}}
+                            {{#each comments}}
+                            <div class="profile-post-comment">
+                                <div class="profile-post-comment-username">{{username}}</div>
+                                <div class="profile-post-comment-content">{{comment}}</div>
+                            </div>
+                            {{/each}}
+                        {{else}}
+                            <div class="profile-post-comment-none">
+                                No comments yet
+                            </div>
+                        {{/if}}
+                   </div>
+                </div>
+                
+            </div>
+            {{/each}}
+            </div>
+</div>
+
+<script src="/public/js/feed-client.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src = "/public/js/filter.js"></script>

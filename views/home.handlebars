@@ -1,0 +1,58 @@
+{{!-- THIS IS OUR HOMEPAGE/LANDINGPAGE --}}
+
+<div id="homepage-container"> 
+    {{!-- <h1>Welcome to Tracklete!</h1>
+    <h2>Great tool for athletes to organize their training plans and progress
+    </h2>
+    <a href="/leaderboard">Click here to see Leaderboard</a><br>
+    <a href="/workouts">Click here to see Workout</a><br>
+
+
+    <h2>Please register or log in to see more details</h2>
+    <a href="/register" role="button" class="btn">Register</a><br>
+    <a href="/login" role="button" class="btn">Log In</a><br>
+    <a href="/logout" role="button" class="btn">Log out</a><br> --}}
+
+    <div id="homepage-upper-container">
+        <div id="homepage-upper-left-container">
+            <h1>
+               Whether you're a seasoned athlete or just starting your fitness journey, Tracklete provides the tools you need to reach your goals!
+            </h1>
+            <h2>
+                Your ultimate fitness companion 
+            </h2>
+            <div class="{{hidden}}" id="homepage-upper-left-buttons">
+                <a href="/login" id="homepage-upper-left-login-button">Log In</a>
+                <div>OR</div>
+                <a href="/register" id="homepage-upper-left-register-button">Sign Up</a>
+            </div>
+        </div>
+        <div id="homepage-upper-right-container">
+            <img src="/public/images/workoutPhoto.jpg" alt="gym interior">
+        </div>
+    </div>
+
+    <div class="homepage-lower-container flex">
+        <div class="homepage-lower-sub-container">
+            <{{divOra}} class="homepage-links">Leaderboard</{{divOra}}>
+            <img src="/public/images/podium.png" alt="podium icon">
+            <div>View rankings</div>
+        </div>
+        <div class="homepage-lower-sub-container">
+            <{{divOra}} class="homepage-links">Feed</{{divOra}}>
+            <img src="/public/images/social-media.png" alt="social media feed icon">
+            <div>View posts</div>
+        </div>
+        <div class="homepage-lower-sub-container">
+            <{{divOra}} class="homepage-links">Workouts</{{divOra}}>
+            <img src="/public/images/gym.png" alt="dumbbell icon">
+            <div>Track workouts</div>
+        </div>
+        <div class="homepage-lower-sub-container">
+            <{{divOra}} class="homepage-links">Progress</{{divOra}}>
+            <img src="/public/images/graphic-progression.png" alt="progress icon">
+            <div>View progress</div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,127 @@
+<div id="register-container">
+    <h1 id="register-welcome">Welcome to Tracklete!</h1>
+    <h2 id="register-logInHere">Already have an account? <a id="register-logInHereButton" href="/login">Log in</a></h2>
+    <div class="registerError">{{errorMessage}}</div>
+
+    <form action="/register" method="POST" name="signup-form" id="signup-form">
+        <label for="firstName" id="firstNameLabel">First Name</label>
+        <input id="firstName" name="firstName" type="text" placeholder="Enter First Name">
+        <div id="firstNameError" class="registerError">{{firstNameError}}</div>
+
+        <label for="lastName" id="lastNameLabel">Last Name</label>
+        <input id="lastName" name="lastName" type="text" placeholder="Enter Last Name">
+        <div id="lastNameError" class="registerError">{{lastNameError}}</div>
+
+        <label for="username" id="usernameLabel">Username</label>
+        <input id="username" name="username" type="text" placeholder="Create a Username">
+        <div id="usernameError" class="registerError">{{usernameError}}</div>
+        <div class="registerSubDiv">Must be between 3 and 12 characters long and cannot contain special characters</div>
+
+        <label for="email" id="emailLabel">Email</label>
+        <input id="email" name="email" type="text" placeholder="Enter Email">
+        <div id="emailError" class="registerError">{{emailError}}</div>
+
+        <label for="password" id="passwordLabel">Password</label>
+        <input id="password" name="password" type="password" placeholder="Choose Password">
+        <div id="passwordError" class="registerError">{{passwordError}}</div>
+        <div class="registerSubDiv">Must contain 8 characters, a capital letter, number and special character</div>
+
+        <label for="confirmPassword" id="confirmPasswordLabel">Confirm Password</label>
+        <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Enter Password again to confirm">
+        <div id="confirmPasswordError" class="registerError">{{confirmPasswordError}}</div>
+
+        <label for="age" id="ageLabel">Age</label>
+        <input id="age" name="age" type="text" placeholder="Enter Age">
+        <div id="ageError" class="registerError">{{ageError}}</div>
+
+        <label for="gender" id="genderLabel">Gender</label>
+        <select id="gender" name="gender">
+            <option value="f">Female</option>
+            <option value="m">Male</option>
+            <option value="o">Other</option>
+        </select>
+        <div id="genderError" class="registerError">{{genderError}}</div>
+
+        <label for="heightFt" id="heightLabel">Height</label>
+        <div id="height">
+            <input id="heightFt" name="heightFt" type="text" placeholder="Feet">
+            <input id="heightIn" name="heightIn" type="text" placeholder="Inches">
+        </div>        
+        <div id="heightError" class="registerError">{{heightError}}</div>
+
+        <label for="weightNum" id="weightLabel">Weight</label>
+        <div id="weight">
+            <input id="weightNum" name="weightNum" type="text" placeholder="Weight">
+            <select id="weightUnit" name="weightUnit">
+                <option value="lbs">lb</option>
+                <option value="kgs">kg</option>
+            </select>
+        </div>        
+        <div id="weightError" class="registerError">{{weightError}}</div>
+
+        <label for="sports" id="sportsLabel">Sports</label>
+        <select id="sports" name="sports" multiple>
+            <option value="Archery">Archery</option>
+            <option value="Badminton">Badminton</option>
+            <option value="Baseball">Baseball</option>
+            <option value="Basketball">Basketball</option>
+            <option value="Bobsleigh">Bobsleigh</option>
+            <option value="Boxing">Boxing</option>
+            <option value="Bouldering">Bouldering</option>
+            <option value="Canoeing/Kayaking">Canoeing/Kayaking</option>
+            <option value="Climbing">Climbing</option>
+            <option value="Cricket">Cricket</option>
+            <option value="Curling">Curling</option>
+            <option value="Cycling">Cycling</option>
+            <option value="Equestrian Sports">Equestrian Sports </option>
+            <option value="Field Hockey">Field Hockey</option>
+            <option value="Field Lacrosse">Field Lacrosse</option>
+            <option value="Fencing">Fencing</option>
+            <option value="Football">Football</option>
+            <option value="Golf">Golf</option>
+            <option value="Gymnastics">Gymnastics</option>
+            <option value="Handball">Handball</option>
+            <option value="Ice Hockey">Ice Hockey</option>
+            <option value="Judo">Judo</option>
+            <option value="Lacrosse">Lacrosse</option>
+            <option value="Martial Arts">Martial Arts</option>
+            <option value="Polo">Polo</option>
+            <option value="Roller Skating/Inline Skating">Roller Skating/Inline Skating</option>
+            <option value="Rowing">Rowing</option>
+            <option value="Rugby">Rugby</option>
+            <option value="Rugby Sevens">Rugby Sevens</option>
+            <option value="Sailing">Sailing</option>
+            <option value="Shooting">Shooting</option>
+            <option value="Skiing">Skiing</option>
+            <option value="Skateboarding">Skateboarding</option>
+            <option value="Snowboarding">Snowboarding</option>
+            <option value="Softball">Softball</option>
+            <option value="Squash">Squash</option>
+            <option value="Surfing">Surfing</option>
+            <option value="Swimming">Swimming</option>
+            <option value="Table Tennis">Table Tennis</option>
+            <option value="Tennis">Tennis</option>
+            <option value="Track and Field">Track and Field</option>
+            <option value="Trampoline">Trampoline</option>
+            <option value="Triathlon">Triathlon</option>
+            <option value="Ultimate Frisbee">Ultimate Frisbee</option>
+            <option value="Volleyball">Volleyball</option>
+            <option value="Water Polo">Water Polo</option>
+            <option value="Weightlifting">Weightlifting</option>
+            <option value="Wrestling">Wrestling</option>
+
+        </select>
+        <div id="sportsError" class="registerError">{{sportsError}}</div>
+        <label for="healthInformation" id="healthInformationLabel">Optional Health Information</label>
+        <input id="healthInformation" name="healthInformation" type="text" placeholder="Optional Health Information">
+        <div id="HealthInformationError" class="registerError">{{healthInformationError}}</div>
+
+        <button id="submitButton" name="submitButton" type="submit">Submit</button>
+
+    </form>
+
+</div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="/public/js/register-client.js"></script>
+<script src="/public/js/register-ajax.js"></script>

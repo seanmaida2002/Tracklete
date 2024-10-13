@@ -1,0 +1,84 @@
+<div id="profile-container">
+    <div id="profile-personal-container">
+        <div id="profile-personal-image"><img src="/public/images/profile-icon.png" alt="profile-icon"></div>
+        <div id="profile-personal-fullname">{{firstName}}&nbsp;{{lastName}}</div>
+        <div id="profile-personal-username">@{{username}}</div>
+        <div id="profile-personal-meta-container">
+            <div id="profile-personal-meta-height">
+                {{height}}
+            </div>
+            <div id="profile-personal-meta-weight">
+                {{weight}}{{weightUnit}}
+            </div>
+        </div>
+        <div id="profile-personal-meta-sport-container">
+            {{#each sports}}
+            <div class="profile-personal-meta-sport">{{this}}</div>
+            {{/each}}
+        </div>
+        <a id="progressButton" href="/progress">View Progress</a>
+        <div id="profile-personal-meta-healthInformation">{{!-- Optional Health Information:<br> --}}{{healthInformation}}</div>
+        {{!-- <a id="profile-personal-edit-button" href="/profile/edit">Edit Profile</a> --}}
+        <a id="logoutButton" href="/logout">Log Out</a>
+    </div>
+    <div id="profile-posts-container">
+        <div id="profile-posts-header-container">
+            <h1>Posts</h1>
+            <button id="profile-posts-create-button">Create +</button>
+        </div>
+
+        {{#if posts.length}}
+        {{else}}
+            <div id="posts-no-posts-yet">
+                No posts yet
+            </div>
+        {{/if}}
+
+
+        <div id="all-posts-container">
+            {{#each posts}}
+            <div class="profile-post">
+                <div class="profile-post-title">{{title}}</div>
+                <div class="profile-post-content">{{body}}</div>
+                {{#if tags}}
+                <div class="post-tags">Tags: {{tags}}</div>
+                {{/if}}
+                <div class="profile-post-caption-container">
+                    <div class="profile-post-caption-username">@{{username}}</div>
+                </div>
+                <div class="profile-post-likes">
+                    <img src="/public/images/heart.png" alt="heart">{{likes}} likes
+                </div>
+                <div class="profile-post-comments-placeholder">
+                    View comments
+                </div>
+                <div class="profile-post-comments-container hidden">
+                    {{#if comments.length}}
+                    {{#each comments}}
+                    <div class="profile-post-comment">
+                        <div class="profile-post-comment-username">{{username}}</div>
+                        <div class="profile-post-comment-content">{{comment}}</div>
+                    </div>
+                    {{/each}}
+                    {{else}}
+                    <div class="profile-post-comment-none">
+                        No comments yet
+                    </div>
+                    {{/if}}
+
+                </div>
+                <div class="profile-post-deleteButton-container">
+                    <form action="/profile/{{id}}" method="POST" class="profile-post-delete-form">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="profile-post-delete-button flex">
+                            <img src="/public/images/trashIcon.png" alt="delete">
+                        </button>
+                    </form>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<script src="/public/js/profilePage-client.js"></script>

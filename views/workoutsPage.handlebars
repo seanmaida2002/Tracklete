@@ -1,0 +1,134 @@
+{{!-- THIS IS OUR WORKOUT PAGE --}}
+
+<div id="workouts-container">
+    <div id="workouts-personal-container">
+        <div id="workouts-personal-image"><img src="/public/images/profile-icon.png" alt="profile-image"></div>
+        <div id="workouts-personal-fullname">{{firstName}}&nbsp;{{lastName}}</div>
+
+        <div id="workouts-personal-username">@{{username}}</div>
+        <div id="workouts-personal-stats-container">
+            <div id="workouts-personal-stats-workouts">
+                Workouts: {{workoutsTotal}}
+            </div>
+            <div id="workouts-personal-stats-cal">
+                Calories Burned: XXXXcal
+            </div>
+        </div>
+        
+    </div>
+    <div id="workouts-workout-container">
+        <div id="workouts-workout-header-container">
+            <h1>Workouts</h1>
+            <button id="workouts-workout-add-button">Add +</button>
+        </div>
+
+        
+        <div class="workoutSearch-container">
+            <form id="workoutSearchForm">
+                <label for="workoutSearch-Name">Filter</label>
+                <input type="text" id="workoutSearch-Name" name="workoutSearch-Name" placeholder="Workout Type">
+                <button class="workoutSearchButton" id="workoutSearchButton" name="workoutSearchButton" type="submit">Search</button>
+                <button class="workoutSearchButton" id="undoSearch" name="undoSearch" type="reset">Undo</button>
+            </form>
+            <div id="workoutSearch-Error"></div>
+        </div>
+
+        {{#if workouts.length}}
+        {{else}}
+            <div id="workouts-no-workouts-yet">
+                No workouts yet
+            </div>
+        {{/if}}
+        
+        <div id="workouts-workout-grid">
+        {{#each workouts}}
+            <div id="{{this._id}}" class="workouts-workout-individual">
+                <div class="workouts-workout-title">
+                    <div class="workouts-workout-type">{{this.workoutType}}</div>
+                    <div class="workouts-workout-cals">{{this.caloriesBurned}} cal</div>
+                </div>
+                <div class="workouts-workout-subtitle">
+                    <div class="workouts-workout-date">{{this.date}}</div>
+                    <div class="workouts-workout-time">{{this.timeElapsed}}</div>
+                </div>
+                <div class="workouts-workout-exercise-grid">
+                    <div class="workouts-workout-exercise-grid-item-header grid-exercise">Exercise</div>
+                    <div class="workouts-workout-exercise-grid-item-header grid-sets">
+                        {{#if (eq this.workoutType "Weight Training")}}
+                            Sets
+                        {{else}}
+                            Dist
+                        {{/if}}
+                    </div>
+                    <div class="workouts-workout-exercise-grid-item-header grid-reps">
+                        {{#if (eq this.workoutType "Weight Training")}}
+                            Reps
+                        {{else}}
+                            Units
+                        {{/if}}
+                    </div>
+                    <div class="workouts-workout-exercise-grid-item-header grid-weight">
+                        {{#if (eq this.workoutType "Weight Training")}}
+                            Weight
+                        {{else}}
+                            Time
+                        {{/if}}
+                    </div>
+
+                    {{#each this.exercises}}
+                    <div class="workouts-workout-exercise-grid-item grid-exercise">{{this.exerciseName}}</div>
+                    <div class="workouts-workout-exercise-grid-item grid-sets">
+                        {{#if this.distance}}
+                            {{this.distance}}
+                        {{else if this.sets}}
+                            {{this.sets}}
+                        {{else}}
+                            Else
+                        {{/if}}
+                    </div>
+                    <div class="workouts-workout-exercise-grid-item grid-reps">
+                        {{#if this.distanceUnits}}
+                            {{this.distanceUnits}}
+                        {{else if this.reps}}
+                            {{this.reps}}
+                        {{else}}
+                            Else
+                        {{/if}}
+                    </div>
+                    <div class="workouts-workout-exercise-grid-item grid-weight">
+                        {{#if this.distance}}
+                            {{this.timeElapsed}}
+                        {{else if this.weight}}
+                            {{this.weight}}{{!--  {{this.weightUnits}} --}}
+                        {{else}}
+                            Else
+                        {{/if}}
+                    </div>
+                    {{/each}}
+
+                </div>
+                {{!-- <div id=""></div> --}}
+                <div class="workouts-workout-comment-container">
+                    <div class="workouts-workout-comment-header">Notes</div>
+                    <div class="workouts-workout-comment-content">{{this.comments}}</div>
+                </div>
+                <div class="workouts-workout-button-container">
+                    <form action="/workouts/{{this._id}}" method="POST" {{!-- id="workouts-workout-delete-form" --}}>
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="workouts-workout-delete-button flex">
+                            <img src="/public/images/trashIcon.png" alt="delete-workout">
+                        </button>
+                    </form>
+                    {{!-- <form action="/workouts" method="PATCH" id="workouts-workout-update-form"> --}}
+                    <button class="workouts-workout-edit-button flex"><img src="/public/images/edit-icon.png" alt="edit-workout">&nbsp;Edit Workout</button>
+                    {{!-- </form> --}}
+                </div>
+            </div>
+        {{/each}}
+        </div>
+    </div>
+</div>  
+
+<script src="/public/js/workoutPage-client.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="/public/js/workoutFilter.js"></script>

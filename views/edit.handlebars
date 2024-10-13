@@ -1,0 +1,117 @@
+<div id="register-container">
+    <h1 id="edit-profile">Edit Your Profile</h1>
+    <div class="registerError">{{errorMessage}}</div>
+
+    <form action="/profile/edit" method="POST" name="edit-form" id="edit-form">
+        <label for="firstName" id="firstNameLabel">First Name</label>
+        <input id="firstName" name="firstName" type="text" value="{{firstName}}"/>
+        <div id="firstNameError" class="registerError">{{firstNameError}}</div>
+
+        <label for="lastName" id="lastNameLabel">Last Name</label>
+        <input id="lastName" name="lastName" type="text" value="{{lastName}}"/>
+        <div id="lastNameError" class="registerError">{{lastNameError}}</div>
+
+        <label for="username" id="usernameLabel">Username</label>
+        <input id="username" name="username" type="text" value="{{username}}"/>
+        <div id="usernameError" class="registerError">{{usernameError}}</div>
+
+        <label for="email" id="emailLabel">Email</label>
+        <input id="email" name="email" type="text" value="{{email}}"/>
+        <div id="emailError" class="registerError">{{emailError}}</div>
+
+        <label for="password" id="passwordLabel">Password</label>
+        <input id="password" name="password" type="password" placeholder="Enter a password"/>
+        <div id="passwordError" class="registerError">{{passwordError}}</div>
+
+        <label for="confirmPassword" id="confirmPasswordLabel">Confirm Password</label>
+        <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Enter Password again to confirm"/>
+        <div id="confirmPasswordError" class="registerError">{{confirmPasswordError}}</div>
+
+        <label for="gender" id="genderLabel">Gender</label>
+        <select id="gender" name="gender">
+            <option value="f" {{#if (eq gender 'f')}}selected{{/if}}>Female</option>
+            <option value="m" {{#if (eq gender 'm')}}selected{{/if}}>Male</option>
+            <option value="o" {{#if (eq gender 'o')}}selected{{/if}}>Other</option>
+        </select>
+        <div id="genderError" class="registerError">{{genderError}}</div>
+
+        <label for="heightFt" id="heightLabel">Height</label>
+        <div id="height">
+            <input id="heightFt" name="heightFt" type="text" value="{{heightFt}}"/>
+            <input id="heightIn" name="heightIn" type="text" value="{{heightIn}}"/>
+        </div>        
+        <div id="heightError" class="registerError">{{heightError}}</div>
+
+        <label for="weightNum" id="weightLabel">Weight</label>
+        <div id="weight">
+            <input id="weightNum" name="weightNum" type="text" value="{{weight}}"/>
+            <select id="weightUnit" name="weightUnit">
+                <option value="lbs" {{#if (eq weightUnit 'lbs')}}selected{{/if}}>lb</option>
+                <option value="kgs" {{#if (eq weightUnit 'kgs')}}selected{{/if}}>kg</option>
+            </select>
+        </div>        
+        <div id="weightError" class="registerError">{{weightError}}</div>
+
+        <label for="sports" id="sportsLabel">Sports</label>
+        <select id="sports" name="sports" multiple>
+            <option value="Archery">Archery</option>
+            <option value="Badminton">Badminton</option>
+            <option value="Baseball">Baseball</option>
+            <option value="Basketball">Basketball</option>
+            <option value="Bobsleigh">Bobsleigh</option>
+            <option value="Boxing">Boxing</option>
+            <option value="Bouldering">Bouldering</option>
+            <option value="Canoeing/Kayaking">Canoeing/Kayaking</option>
+            <option value="Climbing">Climbing</option>
+            <option value="Cricket">Cricket</option>
+            <option value="Curling">Curling</option>
+            <option value="Cycling">Cycling</option>
+            <option value="Equestrian Sports">Equestrian Sports </option>
+            <option value="Field Hockey">Field Hockey</option>
+            <option value="Field Lacrosse">Field Lacrosse</option>
+            <option value="Fencing">Fencing</option>
+            <option value="Football">Football</option>
+            <option value="Golf">Golf</option>
+            <option value="Gymnastics">Gymnastics</option>
+            <option value="Handball">Handball</option>
+            <option value="Ice Hockey">Ice Hockey</option>
+            <option value="Judo">Judo</option>
+            <option value="Lacrosse">Lacrosse</option>
+            <option value="Martial Arts">Martial Arts</option>
+            <option value="Polo">Polo</option>
+            <option value="Roller Skating/Inline Skating">Roller Skating/Inline Skating</option>
+            <option value="Rowing">Rowing</option>
+            <option value="Rugby">Rugby</option>
+            <option value="Rugby Sevens">Rugby Sevens</option>
+            <option value="Sailing">Sailing</option>
+            <option value="Shooting">Shooting</option>
+            <option value="Skiing">Skiing</option>
+            <option value="Skateboarding">Skateboarding</option>
+            <option value="Snowboarding">Snowboarding</option>
+            <option value="Softball">Softball</option>
+            <option value="Squash">Squash</option>
+            <option value="Surfing">Surfing</option>
+            <option value="Swimming">Swimming</option>
+            <option value="Table Tennis">Table Tennis</option>
+            <option value="Tennis">Tennis</option>
+            <option value="Track and Field">Track and Field</option>
+            <option value="Trampoline">Trampoline</option>
+            <option value="Triathlon">Triathlon</option>
+            <option value="Ultimate Frisbee">Ultimate Frisbee</option>
+            <option value="Volleyball">Volleyball</option>
+            <option value="Water Polo">Water Polo</option>
+            <option value="Weightlifting">Weightlifting</option>
+            <option value="Wrestling">Wrestling</option>
+
+        </select>
+        <div id="sportsError" class="registerError">{{sportsError}}</div>
+        <input type="hidden" name='_method' value="PATCH" />
+        <button id="submitButton" name="submitButton" type="submit">Submit</button>
+        
+
+    </form>
+
+</div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="/public/js/edit-profile.js"></script>

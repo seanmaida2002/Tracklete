@@ -1,0 +1,68 @@
+{{!-- <div class="individual-post" data-liked="{{liked}}">
+    <div class="post-info">
+        <h1>{{post.title}}</h1>
+        <h2>{{post.body}}</h2>
+        <h3>User: {{post.username}}</h3>
+        <div class="like-section">
+            <h3>Likes: {{post.likes}}</h3>
+            <form name="likeForm" id="likeForm" action="/feed/{{postId}}/like" method="POST">
+                <button type="submit" id="likeButton" class="like-button">&hearts;</button>
+            </form>
+        </div>
+    </div>
+    <div class="comments">
+        <h3 class="comment-header">Comments:</h3>
+        <div id="commentError"></div>
+        <div class="add-comment">
+            <form name="commentForm" id="commentForm" action="/feed/{{postId}}/add-comment" method="POST">
+                <input type="text" name="commentInput" id="commentInput" placeholder="Enter Comment">
+                <button type="submit" id="postCommentBtn">Post</button>
+            </form>
+        </div>
+        <div class="current-comments">
+            {{#each comments}}
+            <div class="individual-comment">
+                <div class="individual-comment-username">{{username}}</div>
+                <div class="individual-comment-comment">{{comment}}</div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div> --}}
+<div id="individual-post-container">
+    <a href="/feed" class="return-feed-link">Return to feed</a>
+
+    <div class="profile-post individual" data-liked="{{liked}}">
+        <div class="profile-post-title individual">{{post.title}}</div>
+        <div class="profile-post-content individual">{{post.body}}</div>
+        <div class="profile-post-caption-username individual">@{{post.username}}</div>
+        <div class="profile-post-likes individual">
+            <form name="likeForm" id="likeForm" action="/feed/{{postId}}/like" method="POST">
+                <button type="submit" id="likeButton" class="like-button"><img src="/public/images/heart.png" alt="heart"></button>{{post.likes}} likes
+            </form>            
+        </div>
+    <div class="comments individual">
+        <h3 class="comment-header individual">Comments</h3>
+        
+        <div class="profile-post-comments-container individual">
+            {{#each comments}}
+            <div class="individual-comment individual">
+                <div class="individual-comment-username individual">{{username}}</div>
+                <div class="individual-comment-comment individual">{{comment}}</div>
+            </div>
+            {{/each}}
+        </div>
+        
+        <div class="add-comment individual">
+            <form name="commentForm" id="commentForm" action="/feed/{{postId}}/add-comment" method="POST">
+                <input type="text" name="commentInput" id="commentInput" placeholder="Enter Comment">
+                <button type="submit" id="postCommentBtn">Comment</button>
+            </form>
+        </div>
+        <div id="commentError"></div>
+    </div>
+    </div>
+</div>
+
+
+<script src="/public/js/individualPost-client.js"></script>
